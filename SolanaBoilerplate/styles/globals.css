@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Oswald:wght@200..700&family=Tilt+Neon&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, html, body {
+  height: 100%;
+}
+
+body {
+  color:white;
+}
+
+.box .slide {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  translate: -100%;
+}
+
+.box:hover .slide {
+  animation: slidein 1s ease-in-out forwards;
+}
+
+.box:not(:hover) .slide {
+  animation: slideout 1s ease-in-out forwards;
+}
+
+.secondImage{
+  z-index: 2;
+}
+
+.box .slide {
+  z-index: 3;
+}
+
+.showBalance {
+  z-index:4;
+}
+
+.showBalance:hover {
+  animation: showBalance 1s ease-in-out forwards;
+}
+
+.showBalance:not(:hover) {
+  animation: hideBalance 1s ease-in-out forwards;
+}
+
+@keyframes showBalance {
+  0% {
+    translate: 0px;
+  }
+  100%{
+    translate: -300px;
+  }
+}
+
+@keyframes hideBalance {
+  0% {
+    translate: -300px;
+  }
+  100% {
+    translate: 0px;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    translate: -100%;
+  }
+  100% {
+    translate: 0%;
+  }
+}
+
+@keyframes slideout {
+  0% {
+    translate: 0%;
+  }
+  100% {
+    translate: 115%;
+  }
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --gradient-start: #001a33; /* Dark blue */
+  --gradient-end: #85ffae;
+  --green-color: #00a76e; /* Green color */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --gradient-start: #ffffff; /* White */
+    --gradient-end: #e6e6e6; /* Light gray */
+  }
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
